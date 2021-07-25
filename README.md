@@ -145,5 +145,5 @@ Project Link: [https://github.com/paypi/paypi-python](https://github.com/paypi/p
 [issues-shield]: https://img.shields.io/github/issues/Paypi/paypi-python.svg?style=flat-square
 [issues-url]: https://github.com/paypi/paypi-python/issues
 [license-shield]: https://img.shields.io/github/license/Paypi/paypi-python.svg?style=flat-square
-[license-url]: https://github.com/paypi/paypi-python/blob/master/LICENSE.txt
+[license-url]: https://github.com/paypi/paypi-python/blob/master/LICENSE
 [product-screenshot]: images/product.png
