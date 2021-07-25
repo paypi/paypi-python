@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "paypi"
+version = "0.1.0"
+description = "Official PayPI Partner Library"
+authors = ["PayPI <hello@paypi.dev>"]
+keywords = ["paypi"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/paypi/paypi-python"
+repository = "https://github.com/paypi/paypi-python"
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+gql = {extras = ["aiohttp"], version = "^2.0.0"}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
