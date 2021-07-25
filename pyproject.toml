@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "paypi"
-version = "0.2.0"
+version = "0.3.0"
 description = "Official PayPI Partner Library"
 authors = ["PayPI <hello@paypi.dev>"]
 keywords = ["paypi"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/paypi/paypi-python"
+homepage = "https://paypi.dev"
 repository = "https://github.com/paypi/paypi-python"
 include = [
     "LICENSE",
