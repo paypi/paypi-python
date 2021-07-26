@@ -7,7 +7,7 @@ setuptools.setup(
     name="paypi",
     version="0.0.1",
     author="PayPI",
-    author_email="hello@gmail.com",
+    author_email="hello@paypi.dev",
     description=" Official PayPI Partner Library ",
     long_description=long_description,
     long_description_content_type="text/markdown",
