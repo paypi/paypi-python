@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "paypi"
-version = "0.3.0"
+version = "1.0.0"
 description = "Official PayPI Partner Library"
 authors = ["PayPI <hello@paypi.dev>"]
 keywords = ["paypi"]
