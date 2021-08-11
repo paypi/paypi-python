@@ -20,7 +20,7 @@ class PayPI:
         self.transport = AIOHTTPTransport(url=self.connection_string)
         self.session = Client(transport=self.transport)
 
-    async def authenticate(self, subscriber_secret):
+    async def authenticate_async(self, subscriber_secret):
         authenticate_client_mutation = gql("""
             mutation AuthenticateClient(
                 $service_secret: String!
@@ -49,5 +49,5 @@ class PayPI:
 
         return User(self.key, subscriber_secret, self.session)
 
-    def authenticate_sync(self, subscriber_secret):
-        asyncio.run(self.authenticate(subscriber_secret))
+    def authenticate(self, subscriber_secret):
+        return asyncio.run(self.authenticate_async(subscriber_secret))

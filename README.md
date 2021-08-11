@@ -76,21 +76,21 @@ paypi = PayPI("<Your API Secret>")
 
 
 @app.route("/")
-async def hello():
-    user = await paypi.authenticate("<Users Subscription Secret>")
+def hello():
+    user = paypi.authenticate("<Users Subscription Secret>")
 
     # do some work...
 
-    await user.make_charge("<Charge ID>")
+    user.make_charge("<Charge ID>")
     # charge is now made...
 ```
 
-In a synchronous environment you can also use the synchronous API calls. This cannot be done from an asyncio thread:
+In an asynchronous environment you can also use the asynchronous API calls:
 
 ```python
 paypi = PayPI("<Your API Secret>")
-user = paypi.authenticate_sync("Users Subscription Secret")
-user.make_charge_sync("<Charge ID>")
+user = await paypi.authenticate_async("Users Subscription Secret")
+await user.make_charge_async("<Charge ID>")
 ```
 
 <!-- ROADMAP -->

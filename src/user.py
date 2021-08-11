@@ -8,7 +8,7 @@ class User:
         self.subscriber_secret = subscriber_secret
         self.session = session
 
-    async def make_charge(self, charge_identifier, units_used=1):
+    async def make_charge_async(self, charge_identifier, units_used=1):
         make_charge_mutation = gql("""
             mutation makeCharge(
                 $charge_ident: String!
@@ -35,5 +35,5 @@ class User:
 
         result = await self.session.execute_async(make_charge_mutation, variable_values=params)
 
-    def make_charge_sync(self, charge_identifier, units_used=1):
-        asyncio.run(self.make_charge(charge_identifier, units_used))
+    def make_charge(self, charge_identifier, units_used=1):
+        asyncio.run(self.make_charge_async(charge_identifier, units_used))

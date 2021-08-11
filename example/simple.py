@@ -5,6 +5,6 @@ api_secret = "<API SECRET>"
 subscriber_secret = "<SUBSCRIBER SECRET>"
 charge_id = "<CHARGE ID>"
 
-paypi = PayPI(api_secret)
-user = paypi.authenticate_sync(subscriber_secret)
-user.make_charge_sync(charge_id)
+paypi = PayPI(api_secret, host="http://localhost:8080")
+user = paypi.authenticate(subscriber_secret)
+user.make_charge(charge_id)
