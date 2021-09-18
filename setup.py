@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="paypi",
-    version="0.0.1",
+    version="1.0.8",
     author="PayPI",
     author_email="hello@paypi.dev",
     description=" Official PayPI Partner Library ",
@@ -20,7 +20,7 @@ setuptools.setup(
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    package_dir={"": "paypi"},
+    packages=setuptools.find_packages(where="paypi"),
     python_requires=">=3.6",
 )

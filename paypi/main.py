@@ -1,6 +1,6 @@
 from gql import Client, gql
 from gql.transport.aiohttp import AIOHTTPTransport
-from user import User
+from paypi.user import User
 import asyncio
 
 # DEFAULT_HOST = "http://localhost:8080"
@@ -9,7 +9,10 @@ DEFAULT_HOST = "https://api.paypi.dev:443"
 DEFAULT_BASE_PATH = "/graphql"
 
 
-class UserKeyNotValid(Exception):
+class SubscriberKeyNotValid(Exception):
+    pass
+
+class APISecretNotValid(Exception):
     pass
 
 
@@ -21,6 +24,9 @@ class PayPI:
         self.session = Client(transport=self.transport)
 
     async def authenticate_async(self, subscriber_secret):
+        if not self.key:
+            raise APISecretNotValid("API Secret not set, please set the API secret.")
+
         authenticate_client_mutation = gql("""
             mutation AuthenticateClient(
                 $service_secret: String!
@@ -45,7 +51,7 @@ class PayPI:
         result = await self.session.execute_async(authenticate_client_mutation, variable_values=params)
 
         if not result['checkSubscriberSecret']['isAuthed']:
-            raise UserKeyNotValid("Provided user key is not valid")
+            raise SubscriberKeyNotValid("Provided subscriber key is not valid")
 
         return User(self.key, subscriber_secret, self.session)
 
